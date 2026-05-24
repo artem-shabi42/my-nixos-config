@@ -1,22 +1,15 @@
 {
-  description = "NixOS configuration with Noctalia";
+  description = "My first flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
   };
 
-  outputs = inputs@{ self, nixpkgs, ... }: {
-    nixosConfigurations.noctalia = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
+  outputs = { self, nixpkgs }: {
+    nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
       modules = [
-        # ... other modules
-        ./noctalia.nix
-	./hardware-configuration.nix
+        ./configuration.nix
       ];
     };
   };
