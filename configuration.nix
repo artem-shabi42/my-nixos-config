@@ -59,6 +59,17 @@
     neovim
   ];
 
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true; # Важно для работы 32-битных приложений (игры и т.д.)
+    pulse.enable = true;      # Эмуляция PulseAudio
+    # Если вы используете WirePlumber (по умолчанию в новых версиях):
+    wireplumber.enable = true;
+  };
+
+  security.rtkit.enable = true;
+
   services.xserver.videoDrivers = [ "nvidia" ];
   services.openssh.enable = true;
   programs.niri.enable = true;
@@ -66,6 +77,7 @@
   programs.xwayland.enable = true;
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
+  users.defaultUserShell = pkgs.zsh;
   
   hardware.nvidia = {
     modesetting.enable = true;
