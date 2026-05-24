@@ -46,7 +46,6 @@
   
   environment.systemPackages = with pkgs; [
     inputs.noctalia.packages.${pkgs.system}.default
-    hiddify-app
     nano
     wget
     curl
