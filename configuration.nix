@@ -5,7 +5,7 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  #nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
   imports =
     [
@@ -14,7 +14,6 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.devices = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
   boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
@@ -63,6 +62,7 @@
   services.xserver.videoDrivers = [ "nvidia" ];
   services.openssh.enable = true;
   programs.niri.enable = true;
+  programs.zsh.enable = true;
   programs.xwayland.enable = true;
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
