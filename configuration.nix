@@ -44,16 +44,6 @@
     ];
   };
   
-  programs.noctalia-shell = {
-    enable = true;
-    # Здесь можно добавить специфические настройки, например:
-    # settings = {
-    #   general = {
-    #     telemetryEnabled = false;
-    #   };
-    # };
-  };
-
   environment.systemPackages = with pkgs; [
     inputs.noctalia.packages.${pkgs.system}.default
     nano
