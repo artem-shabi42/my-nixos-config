@@ -57,7 +57,6 @@
   #  /etc/profiles/per-user/artem/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
     XCURSOR_THEME = "Adwaita";
     XCURSOR_SIZE = "16";
   };
@@ -69,6 +68,6 @@
     x11.enable = true;
     package = pkgs.adwaita-icon-theme;
     name = "Adwaita";
-    size = 32;
+    size = 16;
   };
 }
