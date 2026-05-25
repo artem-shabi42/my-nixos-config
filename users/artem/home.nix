@@ -21,6 +21,7 @@
     calf
     easyeffects
     lsp-plugins
+    prismlauncher
     rnnoise-plugin
     zam-plugins
   ];
