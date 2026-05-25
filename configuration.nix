@@ -40,12 +40,16 @@
     extraGroups = [ "wheel" "networkmanager" "video" ];
     packages = with pkgs; [
       firefox
+      chromium
       git
+      tree-sitter
+      telegram-desktop
     ];
   };
   
   environment.systemPackages = with pkgs; [
     inputs.noctalia.packages.${pkgs.system}.default
+    nvtop
     nano
     wget
     curl
@@ -58,6 +62,11 @@
     zsh
     neovim
     appimage-run
+    gcc
+    cargo
+    rustc
+    go
+    nodejs
   ];
 
   services.pulseaudio.enable = false;
@@ -74,6 +83,7 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
   services.openssh.enable = true;
+  services.resolved.enable = true;
   programs.niri.enable = true;
   programs.zsh.enable = true;
   programs.xwayland.enable = true;
