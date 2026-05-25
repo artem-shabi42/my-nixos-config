@@ -1,12 +1,15 @@
-# My NixOS Configuration
+# NixOS Configuration
 
-Personal NixOS configuration using flakes and Home Manager as a NixOS module.
+My personal NixOS configuration.
 
-## Structure
+The system is managed with flakes. Home Manager is integrated as a NixOS module, so user packages and dotfiles are applied together with the system rebuild.
+
+## Layout
 
 ```text
 .
 ├── flake.nix
+├── flake.lock
 ├── hosts/
 │   └── nixos/
 │       ├── configuration.nix
@@ -24,7 +27,21 @@ Personal NixOS configuration using flakes and Home Manager as a NixOS module.
         └── nixos.nix
 ```
 
-`hardware-configuration.nix` is ignored because it contains machine-specific disk UUIDs and hardware details.
+## Files
+
+- `flake.nix`: entry point, inputs, and NixOS configuration wiring.
+- `hosts/nixos/configuration.nix`: host-level configuration and module imports.
+- `hosts/nixos/hardware-configuration.nix`: machine-specific hardware and filesystem mounts.
+- `modules/`: reusable system modules.
+- `users/artem/nixos.nix`: NixOS user account configuration.
+- `users/artem/home.nix`: Home Manager configuration.
+
+`hardware-configuration.nix` is tracked because the flake imports it during evaluation. Filesystems are referenced by labels instead of UUIDs:
+
+```text
+/dev/disk/by-label/nixos
+/dev/disk/by-label/NIXBOOT
+```
 
 ## Apply
 
@@ -32,16 +49,36 @@ Personal NixOS configuration using flakes and Home Manager as a NixOS module.
 sudo nixos-rebuild switch --flake /etc/nixos#nixos
 ```
 
-## Check Without Applying
+## Check
 
 ```bash
 nixos-rebuild dry-build --flake path:/etc/nixos#nixos
 ```
 
-## New Machine
+## Update Inputs
 
-Generate a host-specific hardware configuration:
+```bash
+nix flake update /etc/nixos
+sudo nixos-rebuild switch --flake /etc/nixos#nixos
+```
+
+## New Machine Notes
+
+Generate hardware configuration:
 
 ```bash
 sudo nixos-generate-config --show-hardware-config > hosts/nixos/hardware-configuration.nix
+```
+
+If using this configuration as-is, create matching filesystem labels before rebuilding:
+
+```bash
+sudo btrfs filesystem label / nixos
+sudo fatlabel /dev/disk/by-uuid/<BOOT-UUID> NIXBOOT
+```
+
+Then verify:
+
+```bash
+lsblk -f
 ```

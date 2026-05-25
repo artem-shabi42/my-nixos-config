@@ -19,6 +19,7 @@
   # environment.
   home.packages = with pkgs; [
     calf
+    dysk
     easyeffects
     lsp-plugins
     prismlauncher
