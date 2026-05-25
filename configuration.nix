@@ -46,7 +46,6 @@
   
   environment.systemPackages = with pkgs; [
     inputs.noctalia.packages.${pkgs.system}.default
-    hiddify-app
     nano
     wget
     curl
@@ -58,7 +57,11 @@
     waybar
     zsh
     neovim
+    appimage-run
   ];
+
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
 
   services.pipewire = {
     enable = true;
@@ -68,8 +71,6 @@
     # Если вы используете WirePlumber (по умолчанию в новых версиях):
     wireplumber.enable = true;
   };
-
-  security.rtkit.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
   services.openssh.enable = true;

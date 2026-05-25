@@ -1,5 +1,5 @@
 {
-  description = "Мой первый флейк с Noctalia";
+  description = "Мой первый флейк с Noctalia и Hiddify";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -12,9 +12,16 @@
   outputs = { self, nixpkgs, noctalia, ... }@inputs: {
     nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };  # теперь inputs — это весь набор
+      specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
+
+        ({ config, pkgs, ... }: {
+          nixpkgs.config.allowUnfree = true;
+
+          environment.systemPackages = with pkgs; [
+          ];
+        })
       ];
     };
   };

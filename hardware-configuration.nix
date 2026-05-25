@@ -16,19 +16,19 @@
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/af985ceb-f172-43d0-864f-7c8f4fc8ec88";
       fsType = "btrfs";
-      options = [ "subvol=@" "compress=zstd:3" "noatime" ];
+      options = [ "subvol=@" "compress=zstd:3" "noatime" "autodefrag" ];
     };
 
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/af985ceb-f172-43d0-864f-7c8f4fc8ec88";
       fsType = "btrfs";
-      options = [ "subvol=@home" "compress=zstd:3" "noatime" ];
+      options = [ "subvol=@home" "compress=zstd:3" "noatime" "autodefrag" ];
     };
 
   fileSystems."/nix" =
     { device = "/dev/disk/by-uuid/af985ceb-f172-43d0-864f-7c8f4fc8ec88";
       fsType = "btrfs";
-      options = [ "subvol=@nix" "compress=zstd:3" "noatime" ];
+      options = [ "subvol=@nix" "compress=zstd:3" "noatime" "autodefrag" ];
     };
 
   fileSystems."/boot" =
