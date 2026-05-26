@@ -10,6 +10,11 @@
       git
       tree-sitter
       telegram-desktop
+
+      # Minecraft
+      prismlauncher
+      temurin-bin-21
+      temurin-bin-25
     ];
   };
 }

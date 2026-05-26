@@ -21,5 +21,6 @@
     go
     nodejs
     bubblewrap
+    nvtopPackages.full
   ];
 }
