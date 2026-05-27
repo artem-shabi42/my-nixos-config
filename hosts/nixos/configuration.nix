@@ -11,10 +11,12 @@
     ./hardware-configuration.nix
     ../../modules/boot.nix
     ../../modules/desktop.nix
+    ../../modules/fonts.nix
     ../../modules/networking.nix
     ../../modules/noctalia.nix
     ../../modules/nvidia.nix
     ../../modules/packages.nix
+    ../../modules/stoat.nix
     ../../users/artem/nixos.nix
   ];
 

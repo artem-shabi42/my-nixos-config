@@ -1,8 +1,12 @@
 { inputs, pkgs, ... }:
 
+let
+  minecraftCursorTheme = import ./minecraft-cursor.nix { inherit pkgs; };
+in
 {
   environment.systemPackages = with pkgs; [
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    minecraftCursorTheme
     nano
     wget
     curl
@@ -10,6 +14,9 @@
     git
     ghostty
     wl-clipboard
+    xwayland-satellite
+    xwayland-run
+    gamescope
     fuzzel
     waybar
     zsh
@@ -22,5 +29,9 @@
     nodejs
     bubblewrap
     nvtopPackages.full
+    kitty
+    obs-studio
+    obsidian
+    mpv
   ];
 }

@@ -20,6 +20,16 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     wireplumber.enable = true;
+
+    extraConfig.pipewire."10-audio-buffer" = {
+      "context.properties" = {
+        "default.clock.rate" = 48000;
+        "default.clock.allowed-rates" = [ 48000 ];
+        "default.clock.quantum" = 4096;
+        "default.clock.min-quantum" = 4096;
+        "default.clock.max-quantum" = 8192;
+      };
+    };
   };
 
   programs.niri.enable = true;
@@ -28,6 +38,7 @@
   users.defaultUserShell = pkgs.zsh;
 
   environment.sessionVariables = {
+    GLFW_PLATFORM = "x11";
     NIXOS_OZONE_WL = "1";
   };
 
