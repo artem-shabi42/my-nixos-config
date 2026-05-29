@@ -11,6 +11,7 @@
     ./hardware-configuration.nix
     ../../modules/boot.nix
     ../../modules/desktop.nix
+    ../../modules/driftwm.nix
     ../../modules/fonts.nix
     ../../modules/networking.nix
     ../../modules/noctalia.nix

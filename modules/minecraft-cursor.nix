@@ -11,12 +11,12 @@ pkgs.runCommand "minecraft-crosshair-cursor-theme" {
   mkdir -p "$cursor_dir"
 
   magick -size 32x32 xc:none \
-    -fill '#f2f2f2' \
+    -fill '#f2f2f280' \
     -draw 'rectangle 15,7 16,13' \
     -draw 'rectangle 15,18 16,24' \
     -draw 'rectangle 7,15 13,16' \
     -draw 'rectangle 18,15 24,16' \
-    -fill '#202020' \
+    -fill '#20202080' \
     -draw 'rectangle 15,14 16,14' \
     -draw 'rectangle 15,17 16,17' \
     -draw 'rectangle 14,15 14,16' \
