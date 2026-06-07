@@ -3,7 +3,7 @@
 {
   users.users.artem = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "docker" ];
     packages = with pkgs; [
       firefox
       chromium

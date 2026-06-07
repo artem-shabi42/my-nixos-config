@@ -26,8 +26,7 @@
     zam-plugins
     blender
     discord
-    #vesktop
-    zulip
+    ripgrep
 
     # WebRTC
     gst_all_1.gstreamer
