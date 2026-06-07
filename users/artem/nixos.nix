@@ -3,22 +3,30 @@
 {
   users.users.artem = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "docker" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "video"
+      "docker"
+    ];
     packages = with pkgs; [
       firefox
       chromium
       git
       tree-sitter
       telegram-desktop
+      blender
 
       # Minecraft
-      ((prismlauncher.override {
+      (
+        (prismlauncher.override {
           jdks = [
             temurin-bin-17
             temurin-bin-21
             temurin-bin-25
           ];
-        }).overrideAttrs (old: {
+        }).overrideAttrs
+        (old: {
           qtWrapperArgs = old.qtWrapperArgs ++ [
             "--set"
             "GLFW_PLATFORM"
@@ -27,7 +35,8 @@
             "__GL_THREADED_OPTIMIZATIONS"
             "0"
           ];
-        }))
+        })
+      )
     ];
   };
 }

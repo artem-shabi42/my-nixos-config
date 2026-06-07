@@ -24,8 +24,6 @@
     lsp-plugins
     rnnoise-plugin
     zam-plugins
-    blender
-    discord
     ripgrep
 
     # WebRTC
