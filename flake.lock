@@ -1,25 +1,5 @@
 {
   "nodes": {
-    "driftwm": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1780005263,
-        "narHash": "sha256-pc2Ow7lVnPBER7u8AFR+Lxl+TxB2cZ2uZp72ilhkNvg=",
-        "owner": "malbiruk",
-        "repo": "driftwm",
-        "rev": "11dc5c37f437a173a64edbc4109b78f312f8e53f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "malbiruk",
-        "repo": "driftwm",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -102,7 +82,6 @@
     },
     "root": {
       "inputs": {
-        "driftwm": "driftwm",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "noctalia": "noctalia"

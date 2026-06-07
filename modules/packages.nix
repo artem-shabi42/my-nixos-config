@@ -23,6 +23,7 @@ in
     neovim
     appimage-run
     gcc
+    gnumake
     cargo
     rustc
     go
@@ -33,5 +34,10 @@ in
     obs-studio
     obsidian
     mpv
+    zip
+    unzip
+    (llama-cpp.override { cudaSupport = true; })
   ];
+
+  programs.nix-ld.enable = true;
 }

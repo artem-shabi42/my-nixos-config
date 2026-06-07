@@ -11,13 +11,15 @@
     ./hardware-configuration.nix
     ../../modules/boot.nix
     ../../modules/desktop.nix
-    ../../modules/driftwm.nix
     ../../modules/fonts.nix
     ../../modules/networking.nix
     ../../modules/noctalia.nix
     ../../modules/nvidia.nix
     ../../modules/packages.nix
     ../../modules/stoat.nix
+    ../../modules/direnv.nix
+    ../../modules/opencode.nix
+    ../../modules/steam.nix
     ../../users/artem/nixos.nix
   ];
 

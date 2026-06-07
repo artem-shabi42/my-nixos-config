@@ -22,13 +22,27 @@
     wireplumber.enable = true;
 
     extraConfig.pipewire."10-audio-buffer" = {
-      "context.properties" = {
-        "default.clock.rate" = 48000;
-        "default.clock.allowed-rates" = [ 48000 ];
-        "default.clock.quantum" = 4096;
-        "default.clock.min-quantum" = 4096;
-        "default.clock.max-quantum" = 8192;
-      };
+    "context.properties" = {
+    "default.clock.rate" = 48000;
+    "default.clock.allowed-rates" = [ 48000 ];
+    "default.clock.quantum" = 1024;
+    "default.clock.min-quantum" = 512;
+    "default.clock.max-quantum" = 2048;
+  };
+};
+
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gnome
+      xdg-desktop-portal-gtk
+    ];
+    config.common = {
+      default = [ "gnome" "gtk" ];
+      "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+      "org.freedesktop.impl.portal.Screenshot" = "gnome";
     };
   };
 
